@@ -362,3 +362,6 @@ animation = &"idle"
 autoplay = "idle"
 frame = 2
 frame_progress = 0.281634
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(437, 325)

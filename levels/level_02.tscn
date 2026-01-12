@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cykky5j5gn04s"]
+[gd_scene load_steps=66 format=3 uid="uid://u4p51wkpweoc"]
 
 [ext_resource type="Texture2D" uid="uid://chwbcf7n2ajtp" path="res://assets/art/platforms/Platformer_spritesheet.png" id="1_3n7ld"]
 [ext_resource type="Texture2D" uid="uid://b2bad2gagymed" path="res://assets/art/characters/knight/idle/0_Hell_Knight_Idle_000.png" id="2_ichuk"]

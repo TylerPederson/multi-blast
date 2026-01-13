@@ -317,3 +317,6 @@ sprite_frames = SubResource("SpriteFrames_rj2p1")
 animation = &"jump_start"
 autoplay = "idle"
 frame_progress = 0.238157
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -200)

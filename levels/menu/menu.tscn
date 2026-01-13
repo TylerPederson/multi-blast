@@ -1,26 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://benkvpbbtqpkw"]
+[gd_scene load_steps=6 format=3 uid="uid://benkvpbbtqpkw"]
 
 [ext_resource type="Texture2D" uid="uid://bja0wl8tcw71c" path="res://assets/art/backgrounds/background_01.png" id="1_0lr7q"]
 [ext_resource type="Script" path="res://levels/menu/menu.gd" id="1_6tnc7"]
 [ext_resource type="Texture2D" uid="uid://bujx43rcy5b85" path="res://assets/art/backgrounds/background_02.png" id="2_oat16"]
+[ext_resource type="PackedScene" uid="uid://bmkuoyvfys6xs" path="res://levels/level_01.tscn" id="2_qu6jj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mm2ha"]
 font_size = 80
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("ip_line_edit", "status_label")]
+[node name="Menu" type="Node" node_paths=PackedStringArray("ui", "level_container", "ip_line_edit", "status_label", "not_connected_hbox", "host_hbox")]
+script = ExtResource("1_6tnc7")
+ui = NodePath("UI")
+level_container = NodePath("LevelHolder")
+level_scene = ExtResource("2_qu6jj")
+ip_line_edit = NodePath("UI/NotConnectedHBox/LineEdit")
+status_label = NodePath("UI/Status")
+not_connected_hbox = NodePath("UI/NotConnectedHBox")
+host_hbox = NodePath("UI/HostHBox")
+
+[node name="LevelHolder" type="Node" parent="."]
+
+[node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://levels/level_01.tscn")
+spawn_path = NodePath("../LevelHolder")
+spawn_limit = 1
+
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6tnc7")
-ip_line_edit = NodePath("HBoxContainer/LineEdit")
-status_label = NodePath("Status")
 
-[node name="Background_Trees" type="TextureRect" parent="."]
+[node name="Background_Trees" type="TextureRect" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +46,7 @@ texture = ExtResource("1_0lr7q")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Background_Houses" type="TextureRect" parent="Background_Trees"]
+[node name="Background_Houses" type="TextureRect" parent="UI/Background_Trees"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,35 +57,43 @@ texture = ExtResource("2_oat16")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="NotConnectedHBox" type="HBoxContainer" parent="UI"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 1132.0
 offset_bottom = 60.0
 
-[node name="HostButton" type="Button" parent="HBoxContainer"]
+[node name="HostButton" type="Button" parent="UI/NotConnectedHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Host"
 
-[node name="JoinButton" type="Button" parent="HBoxContainer"]
+[node name="JoinButton" type="Button" parent="UI/NotConnectedHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Join"
 
-[node name="StartButton" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Start"
-
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="UI/NotConnectedHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "127.0.0.1"
 placeholder_text = "Enter IP Address"
 
-[node name="Status" type="Label" parent="."]
+[node name="HostHBox" type="HBoxContainer" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 760.0
+offset_bottom = 60.0
+
+[node name="StartButton" type="Button" parent="UI/HostHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start"
+
+[node name="Status" type="Label" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,6 +105,6 @@ label_settings = SubResource("LabelSettings_mm2ha")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="HBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/NotConnectedHBox/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="UI/NotConnectedHBox/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="UI/HostHBox/StartButton" to="." method="_on_start_button_pressed"]

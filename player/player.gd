@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 		player_sprite.play("idle")
 	
 	elif is_walking:
+		print("is walking")
 		if horizontal_input < 0:
 			player_sprite.scale = Vector2(-initial_sprite_scale.x, initial_sprite_scale.y)
 		else:

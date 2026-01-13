@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://benkvpbbtqpkw"]
+[gd_scene load_steps=4 format=3 uid="uid://benkvpbbtqpkw"]
 
 [ext_resource type="Texture2D" uid="uid://bja0wl8tcw71c" path="res://assets/art/backgrounds/background_01.png" id="1_0lr7q"]
 [ext_resource type="Texture2D" uid="uid://bujx43rcy5b85" path="res://assets/art/backgrounds/background_02.png" id="2_oat16"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mm2ha"]
+font_size = 80
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -58,9 +63,17 @@ text = "Start"
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "IP"
+text = "127.0.0.1"
+placeholder_text = "Enter IP Address"
 
-[node name="Status" type="Label" parent="HBoxContainer"]
-layout_mode = 2
+[node name="Status" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
-text = "Status"
+label_settings = SubResource("LabelSettings_mm2ha")
+horizontal_alignment = 1
+vertical_alignment = 1

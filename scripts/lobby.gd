@@ -5,7 +5,7 @@ signal player_disconnected(peer_id)
 signal server_disconnected
 
 const PORT = 7000
-const MAX_CONNECTIONS = 2
+const MAX_CONNECTIONS = 3
 
 var players = {}
 

@@ -302,8 +302,9 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_sprite")]
 script = ExtResource("1_7m1d6")
+player_sprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27.5)
@@ -313,7 +314,6 @@ shape = SubResource("RectangleShape2D_suucs")
 position = Vector2(0, -30.105)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_rj2p1")
-animation = &"idle"
+animation = &"jump_start"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.281634
+frame_progress = 0.238157

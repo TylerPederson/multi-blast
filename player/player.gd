@@ -8,8 +8,27 @@ extends CharacterBody2D
 
 @onready var initial_sprite_scale = player_sprite.scale
 
+var owner_id = 1
+
+func _enter_tree():
+	owner_id = name.to_int()
+	set_multiplayer_authority(owner_id)
+	
+	if owner_id != multiplayer.get_unique_id():
+		return
+
+
+func _process(_delta):
+	if multiplayer.multiplayer_peer == null:
+		return
+	if owner_id != multiplayer.get_unique_id():
+		return
 
 func _physics_process(delta: float) -> void:
+	
+	if owner_id != multiplayer.get_unique_id():
+		return
+	
 	var horizontal_input = (
 		Input.get_action_strength("move_right")
 		- Input.get_action_strength("move_left")

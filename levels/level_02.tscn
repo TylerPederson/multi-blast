@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cykky5j5gn04s"]
+[gd_scene load_steps=5 format=3 uid="uid://u4p51wkpweoc"]
 
 [ext_resource type="Texture2D" uid="uid://chwbcf7n2ajtp" path="res://assets/art/platforms/Platformer_spritesheet.png" id="1_3n7ld"]
 [ext_resource type="PackedScene" uid="uid://6p688t3wd1kn" path="res://scenes/player_2.tscn" id="2_ungyw"]
@@ -50,5 +50,5 @@ layer_0/tile_data = PackedInt32Array(589825, 131072, 2, 589826, 131072, 2, 58982
 
 [node name="Player2" parent="." instance=ExtResource("2_ungyw")]
 
-[node name="Camera2D" type="Camera2D" parent="Player2"]
+[node name="Camera2D2" type="Camera2D" parent="Player2"]
 position = Vector2(0, -200)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://benkvpbbtqpkw"]
+
+[ext_resource type="Texture2D" uid="uid://bja0wl8tcw71c" path="res://assets/art/backgrounds/background_01.png" id="1_0lr7q"]
+[ext_resource type="Texture2D" uid="uid://bujx43rcy5b85" path="res://assets/art/backgrounds/background_02.png" id="2_oat16"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background_Trees" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0lr7q")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Background_Houses" type="TextureRect" parent="Background_Trees"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oat16")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 720.0
+offset_bottom = 60.0
+
+[node name="HostButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Host"

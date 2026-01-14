@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmkuoyvfys6xs"]
+[gd_scene load_steps=10 format=3 uid="uid://bmkuoyvfys6xs"]
 
 [ext_resource type="Texture2D" uid="uid://chwbcf7n2ajtp" path="res://assets/art/platforms/Platformer_spritesheet.png" id="1_ie2p7"]
 [ext_resource type="Script" path="res://scripts/level_01.gd" id="1_rania"]
 [ext_resource type="PackedScene" uid="uid://jf6y6mq7xs2n" path="res://player/player.tscn" id="2_5t7v2"]
 [ext_resource type="PackedScene" uid="uid://3ulxhupfgm3c" path="res://scenes/interactables/pressure_plate.tscn" id="3_7xy0b"]
 [ext_resource type="Texture2D" uid="uid://bja0wl8tcw71c" path="res://assets/art/backgrounds/background_01.png" id="4_0rhp2"]
+[ext_resource type="PackedScene" uid="uid://d2r6nm4u7ovsx" path="res://scenes/interactables/door.tscn" id="4_1cx3b"]
 [ext_resource type="Texture2D" uid="uid://bujx43rcy5b85" path="res://assets/art/backgrounds/background_02.png" id="5_xxjrj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_agshy"]
@@ -53,6 +54,9 @@ spawn_points = [NodePath("Players/SpawnPoint_0"), NodePath("Players/SpawnPoint_1
 
 [node name="PressurePlate" parent="Interactables" instance=ExtResource("3_7xy0b")]
 position = Vector2(1022, 576)
+
+[node name="Door" parent="Interactables" instance=ExtResource("4_1cx3b")]
+position = Vector2(1150, 576)
 
 [node name="Environment" type="Node" parent="."]
 

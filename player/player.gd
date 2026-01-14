@@ -69,6 +69,8 @@ func handle_movement_state():
 			state = PlayerState.DOUBLE_JUMPING
 		else:
 			state = PlayerState.FALLING
+	
+	# Process State
 	match state:
 		PlayerState.IDLE:
 			player_sprite.play("idle")
@@ -94,6 +96,7 @@ func handle_movement_state():
 		PlayerState.FALLING:
 			player_sprite.play("fall")
 	
+	# Jump Cancelling
 	if Input.is_action_just_released("jump") and velocity.y < 0.0:
 		velocity.y = 0.0
 

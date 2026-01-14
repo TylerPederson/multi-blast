@@ -52,7 +52,7 @@ spawn_points = [NodePath("Players/SpawnPoint_0"), NodePath("Players/SpawnPoint_1
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="PressurePlate" parent="Interactables" instance=ExtResource("3_7xy0b")]
+[node name="DoorPlate" parent="Interactables" instance=ExtResource("3_7xy0b")]
 position = Vector2(1022, 576)
 
 [node name="Door" parent="Interactables" instance=ExtResource("4_1cx3b")]
@@ -104,3 +104,5 @@ position = Vector2(532, 563)
 
 [node name="SpawnPoint_2" type="Node2D" parent="Players"]
 position = Vector2(628, 563)
+
+[connection signal="toggle" from="Interactables/DoorPlate" to="Interactables/Door" method="activate"]
